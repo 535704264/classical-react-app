@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 
 import { Provider } from 'react-redux'; // redux状态管理，全局使用
 import store from './store'
+import './api/mock' // 
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
