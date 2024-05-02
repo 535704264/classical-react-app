@@ -1,18 +1,12 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom';
 
-import {
-    MenuFoldOutlined,
-    MenuUnfoldOutlined,
-    UploadOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
-  } from '@ant-design/icons';
-import { Button, Layout, Menu, theme } from 'antd';
+import {Layout, theme } from 'antd';
 import CommonAside from '../components/commonAside';
 import CommonHeader from '../components/commonHeader';
 import {useSelector} from 'react-redux'
 
-const { Header, Sider, Content } = Layout;
+const {Content } = Layout;
 
 
 
@@ -38,7 +32,7 @@ const  collapsed =  useSelector(state => state.tab.isCollapse)
             borderRadius: borderRadiusLG,
           }}
         >
-          Content
+          <Outlet/>
         </Content>
       </Layout>
     </Layout>
