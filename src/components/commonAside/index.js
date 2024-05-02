@@ -2,19 +2,13 @@ import React, { lazy } from 'react'
 import MenuConfig from '../../config'
 import * as Icon from '@ant-design/icons'
 
-import {
-    MenuFoldOutlined,
-    MenuUnfoldOutlined,
-    UploadOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
-  } from '@ant-design/icons';
+
 import { Layout, Menu } from 'antd';
 
 const { Sider } = Layout;
 
 // 动态获取icon
-const  iconToElement = (name) => React.createElement
+const  iconToElement = (name) => React.createElement(Icon[name])
 
 const items = MenuConfig.map((icon)=>{
     // 没有子菜单
@@ -36,10 +30,11 @@ const items = MenuConfig.map((icon)=>{
 })
 
 
-const CommonAside = () => {
+const CommonAside = ({collapsed}) => {
+  // console.log(collapsed, "commonAsider")
     return (
-        <Sider trigger={null} collapsible >
-        <h3 className='app-name'>通用后台管理系统</h3>
+        <Sider trigger={null} collapsed={collapsed} >
+        <h3 className='app-name'>{collapsed?"后台":"通用后台管理系统"}</h3>
         <Menu
           theme="dark"
           mode="inline"

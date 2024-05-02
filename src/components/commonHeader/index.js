@@ -3,7 +3,8 @@ import { Layout, Avatar, Button, Dropdown } from 'antd';
 
 import { MenuFoldOutlined } from '@ant-design/icons'
 import './index.css';
-import {} from 'react-redux'
+import {useDispatch} from 'react-redux'
+import {collapseMenu} from '../../store/reducers/tab'
 
 const { Header } = Layout;
 
@@ -29,9 +30,11 @@ const CommonHeader = ({collapsed}) => {
         }
       ]
 
+   // 创建dispatch
+   const dispatch = useDispatch()
    // 点击展开/收起按钮
    const setCollapse   = () => {
-    console.log(collapsed)
+    dispatch(collapseMenu())
    }
    return (
     <Header className='hadeer-container'>
@@ -41,7 +44,7 @@ const CommonHeader = ({collapsed}) => {
             // onClick={() => {}}
             style={{
               fontSize: '16px',
-              width: 64,
+              width: 48,
               height: 32,
               backgroundColor: '#fff'
             }}
